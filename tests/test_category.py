@@ -1,24 +1,23 @@
-import pytest
-
 from src.category import Category
+from src.product import Product
 
 
-@pytest.fixture()
-def category_1():
-    return Category("Продукты", "Мясные изделия", ["Колбаса", "Сосиски", "Сало"])
+def test_category_1():
+    category1 = Category("Одежда", "Виды одежды", [])
+    product1 = Product("Футболка", "Футболка размера-Х", 500, 10)
+    category1.add_product(product1)
+    assert category1.name == "Одежда"
+    assert category1.description == "Виды одежды"
+    assert category1.products == "Футболка, 500 руб. Остаток: 10 шт.\n"
+    assert category1.number_categories == 1
+    assert category1.number_products == 1
 
+    product2 = Product("Джинсы", "Джинсы синие", 1000, 5)
+    category1.add_product(product2)
+    assert category1.products == "Футболка, 500 руб. Остаток: 10 шт.\nДжинсы, 1000 руб. Остаток: 5 шт.\n"
+    assert category1.number_categories == 1
+    assert category1.number_products == 2
 
-@pytest.fixture()
-def category_2():
-    return Category("Автозапчасти", "Шины", ["Летние", "Зимние", "Всесезонные"])
-
-
-def test_category_2(category_1, category_2):
-    assert category_1.name == "Продукты"
-    assert category_1.description == "Мясные изделия"
-    assert category_1.products == ["Колбаса", "Сосиски", "Сало"]
-    assert category_2.name == "Автозапчасти"
-    assert category_2.description == "Шины"
-    assert category_2.products == ["Летние", "Зимние", "Всесезонные"]
-    assert category_2.number_categories == 2
-    assert category_2.number_products == 6
+    category2 = Category("Продукты", "Мясные изделия", ["Колбаса", "Сосиски", "Сало"])
+    assert category2.number_categories == 2
+    assert category2.number_products == 5
