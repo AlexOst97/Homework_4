@@ -32,14 +32,14 @@ class Category:
         return product_str
 
 
-if __name__ == "__main__":
-    category1 = Category("Одежда", "Виды одежды", [])
-
-    # product1 = Product("Футболка", "Футболка размера-Х", 500, 10)
-    # product2 = Product("Джинсы", "Джинсы синие", 1000, 5)
-    # category1.add_product(product1)
-    # category1.add_product(product2)
-    # print(category1)
+# if __name__ == "__main__":
+#     category1 = Category("Одежда", "Виды одежды", [])
+#
+#     product1 = Product("Футболка", "Футболка размера-Х", 500, 10)
+#     product2 = Product("Джинсы", "Джинсы синие", 1000, 5)
+#     category1.add_product(product1)
+#     category1.add_product(product2)
+#     print(category1)
 #     print(category1.name)
 #     print(category1.description)
 #     print(category1.products)
