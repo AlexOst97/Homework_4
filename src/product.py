@@ -16,7 +16,7 @@ class Product:
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        if isinstance(other, Product) or issubclass(type(other), Product):
+        if type(other) is Product:
             sum_goods = (self.__price * self.quantity) + (other.__price * other.quantity)
             return sum_goods
         else:
@@ -53,7 +53,7 @@ class Smartphone(Product):
         self.color = color  # цвет
 
     def __add__(self, other):
-        if isinstance(other, Smartphone) or issubclass(type(other), Smartphone):
+        if type(other) is Smartphone:
             sum_goods = (self.price * self.quantity) + (other.price * other.quantity)
             return sum_goods
         else:
@@ -70,33 +70,33 @@ class LawnGrass(Product):
         self.color = color  # цвет
 
     def __add__(self, other):
-        if isinstance(other, LawnGrass) or issubclass(type(other), LawnGrass):
+        if type(other) is LawnGrass:
             sum_goods = (self.price * self.quantity) + (other.price * other.quantity)
             return sum_goods
         else:
             raise TypeError
 
 
-if __name__ == "__main__":
-    # product1 = Smartphone("Телефоны", "Cмартфоны", 97700, 7, "Apple", "iPhone 14 Pro Max", "256 ГБ", "Золотой")
-    # product2 = Smartphone("Телефоны", "Cмартфоны", 127700, 12, "Apple", "iPhone 15 Pro Max", "256 ГБ", "Золотой")
-    # print(product1.name)
-    # print(product1.description)
-    # print(product1.price)
-    # print(product1.quantity)
-    # print(product1.efficiency)
-    # print(product1.model)
-    # print(product1.memory)
-    # print(product1.color)
-    # print(product1+product2)
-
-    product3 = LawnGrass("Покрытие для спорта", "Для футбола", 156000, 55, "Россия", "5 суток", "Зеленая")
-    product4 = LawnGrass("Покрытие для спорта", "Для футбола", 106500, 74, "Россия", "5 суток", "Зеленая")
-    print(product3.name)
-    print(product3.description)
-    print(product3.price)
-    print(product3.quantity)
-    print(product3.country)
-    print(product3.germination_period)
-    print(product3.color)
-    print(product3 + product4)
+# if __name__ == "__main__":
+#     product1 = Smartphone("Телефоны", "Cмартфоны", 97700, 7, "Apple", "iPhone 14 Pro Max", "256 ГБ", "Золотой")
+#     product2 = Smartphone("Телефоны", "Cмартфоны", 127700, 12, "Apple", "iPhone 15 Pro Max", "256 ГБ", "Золотой")
+#     print(product1.name)
+#     print(product1.description)
+#     print(product1.price)
+#     print(product1.quantity)
+#     print(product1.efficiency)
+#     print(product1.model)
+#     print(product1.memory)
+#     print(product1.color)
+#     print(product1+product2)
+#
+#     product3 = LawnGrass("Покрытие для спорта", "Для футбола", 156000, 55, "Россия", "5 суток", "Зеленая")
+#     product4 = LawnGrass("Покрытие для спорта", "Для футбола", 106500, 74, "Россия", "5 суток", "Зеленая")
+#     print(product3.name)
+#     print(product3.description)
+#     print(product3.price)
+#     print(product3.quantity)
+#     print(product3.country)
+#     print(product3.germination_period)
+#     print(product3.color)
+#     print(product3 + product4)
