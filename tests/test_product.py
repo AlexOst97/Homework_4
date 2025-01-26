@@ -100,3 +100,21 @@ def test_product_6(product_lawngrass_1, product_lawngrass_2):
 
     with pytest.raises(TypeError):
         product_lawngrass_1 + 1
+
+
+def test_product_7(capsys):
+    Product("Молоко", "Тогучинское", 66.6, 47)
+    message = capsys.readouterr()
+    assert message.out.strip() == 'Product(Молоко, Тогучинское, 66.6, 47)'
+
+
+def test_product_8(capsys):
+    Smartphone("Телефоны", "Cмартфоны", 97700, 7, "Apple", "iPhone 14 Pro Max", "256 ГБ", "Золотой")
+    message = capsys.readouterr()
+    assert message.out.strip() == 'Smartphone(Телефоны, Cмартфоны, 97700, 7)'
+
+
+def test_product_9(capsys):
+    LawnGrass("Покрытие для спорта", "Для футбола", 156000, 55, "Россия", "5 суток", "Зеленая")
+    message = capsys.readouterr()
+    assert message.out.strip() == 'LawnGrass(Покрытие для спорта, Для футбола, 156000, 55)'

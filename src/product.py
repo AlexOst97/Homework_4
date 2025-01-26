@@ -1,4 +1,24 @@
-class Product:
+from abc import ABC, abstractmethod
+
+
+class BaseProduct(ABC):
+    '''Абстрактный класс'''
+
+    @abstractmethod
+    def __add__(self, other):
+        pass
+
+
+class MixinProduct:
+    '''Класс-миксин'''
+    def __init__(self):
+        print(repr(self))
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}({self.name}, {self.description}, {self.price}, {self.quantity})'
+
+
+class Product(BaseProduct, MixinProduct):
     """Класс, описывающий продукты"""
 
     name: str  # название
@@ -11,6 +31,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
@@ -77,26 +98,39 @@ class LawnGrass(Product):
             raise TypeError
 
 
-# if __name__ == "__main__":
-#     product1 = Smartphone("Телефоны", "Cмартфоны", 97700, 7, "Apple", "iPhone 14 Pro Max", "256 ГБ", "Золотой")
-#     product2 = Smartphone("Телефоны", "Cмартфоны", 127700, 12, "Apple", "iPhone 15 Pro Max", "256 ГБ", "Золотой")
-#     print(product1.name)
-#     print(product1.description)
-#     print(product1.price)
-#     print(product1.quantity)
-#     print(product1.efficiency)
-#     print(product1.model)
-#     print(product1.memory)
-#     print(product1.color)
-#     print(product1+product2)
-#
-#     product3 = LawnGrass("Покрытие для спорта", "Для футбола", 156000, 55, "Россия", "5 суток", "Зеленая")
-#     product4 = LawnGrass("Покрытие для спорта", "Для футбола", 106500, 74, "Россия", "5 суток", "Зеленая")
-#     print(product3.name)
-#     print(product3.description)
-#     print(product3.price)
-#     print(product3.quantity)
-#     print(product3.country)
-#     print(product3.germination_period)
-#     print(product3.color)
-#     print(product3 + product4)
+if __name__ == "__main__":
+    print('КЛАСС Product')
+    product1 = Product("Молоко", "Тогучинское", 66.6, 47)
+    product2 = Product("Масло", "Сливочное", 200.0, 15)
+    # print(product1)
+    # print(product1.name)
+    # print(product1.description)
+    # print(product1.price)
+    # print(product1.quantity)
+    #
+    #
+    print('КЛАСС Smartphone')
+    product3 = Smartphone("Телефоны", "Cмартфоны", 97700, 7, "Apple", "iPhone 14 Pro Max", "256 ГБ", "Золотой")
+    product4 = Smartphone("Телефоны", "Cмартфоны", 127700, 12, "Apple", "iPhone 15 Pro Max", "256 ГБ", "Золотой")
+    # print(product3.name)
+    # print(product3.description)
+    # print(product3.price)
+    # print(product3.quantity)
+    # print(product3.efficiency)
+    # print(product3.model)
+    # print(product3.memory)
+    # print(product3.color)
+    # print(product3+product4)
+    #
+    #
+    print('КЛАСС LawnGrass')
+    product5 = LawnGrass("Покрытие для спорта", "Для футбола", 156000, 55, "Россия", "5 суток", "Зеленая")
+    product6 = LawnGrass("Покрытие для спорта", "Для футбола", 106500, 74, "Россия", "5 суток", "Зеленая")
+    # print(product5.name)
+    # print(product5.description)
+    # print(product5.price)
+    # print(product5.quantity)
+    # print(product5.country)
+    # print(product5.germination_period)
+    # print(product5.color)
+    # print(product5 + product6)
