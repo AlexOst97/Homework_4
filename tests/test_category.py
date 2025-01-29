@@ -23,3 +23,8 @@ def test_category_1():
     category2 = Category("Продукты", "Мясные изделия", ["Колбаса", "Сосиски", "Сало"])
     assert category2.number_categories == 2
     assert category2.number_products == 5
+
+
+def test_category_2():
+    category_zero = Category("Одежда", "Виды одежды", [])
+    assert category_zero.average_price() == 0

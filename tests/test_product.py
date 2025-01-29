@@ -118,3 +118,8 @@ def test_product_9(capsys):
     LawnGrass("Покрытие для спорта", "Для футбола", 156000, 55, "Россия", "5 суток", "Зеленая")
     message = capsys.readouterr()
     assert message.out.strip() == 'LawnGrass(Покрытие для спорта, Для футбола, 156000, 55)'
+
+
+def test_product_10():
+    with pytest.raises(ValueError):
+        Product("Молоко", "Тогучинское", 66.6, 0)

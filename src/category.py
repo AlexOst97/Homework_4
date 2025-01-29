@@ -34,6 +34,12 @@ class Category:
             product_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return product_str
 
+    def average_price(self):
+        try:
+            return sum([product.price for product in self.__products]) // len(self.__products)
+        except ZeroDivisionError:
+            return 0
+
 
 # if __name__ == "__main__":
 #     category1 = Category("Одежда", "Виды одежды", [])
@@ -52,3 +58,5 @@ class Category:
 #     category2 = Category("Продукты", "Мясные изделия", ["Колбаса", "Сосиски", "Сало"])
 #     print(category2.number_categories)
 #     print(category2.number_products)
+#
+#     print(category1.average_price())

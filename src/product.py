@@ -31,6 +31,8 @@ class Product(BaseProduct, MixinProduct):
         self.description = description
         self.__price = price
         self.quantity = quantity
+        if self.quantity == 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         super().__init__()
 
     def __str__(self):
@@ -98,39 +100,44 @@ class LawnGrass(Product):
             raise TypeError
 
 
-if __name__ == "__main__":
-    print('КЛАСС Product')
-    product1 = Product("Молоко", "Тогучинское", 66.6, 47)
-    product2 = Product("Масло", "Сливочное", 200.0, 15)
-    # print(product1)
-    # print(product1.name)
-    # print(product1.description)
-    # print(product1.price)
-    # print(product1.quantity)
-    #
-    #
-    print('КЛАСС Smartphone')
-    product3 = Smartphone("Телефоны", "Cмартфоны", 97700, 7, "Apple", "iPhone 14 Pro Max", "256 ГБ", "Золотой")
-    product4 = Smartphone("Телефоны", "Cмартфоны", 127700, 12, "Apple", "iPhone 15 Pro Max", "256 ГБ", "Золотой")
-    # print(product3.name)
-    # print(product3.description)
-    # print(product3.price)
-    # print(product3.quantity)
-    # print(product3.efficiency)
-    # print(product3.model)
-    # print(product3.memory)
-    # print(product3.color)
-    # print(product3+product4)
-    #
-    #
-    print('КЛАСС LawnGrass')
-    product5 = LawnGrass("Покрытие для спорта", "Для футбола", 156000, 55, "Россия", "5 суток", "Зеленая")
-    product6 = LawnGrass("Покрытие для спорта", "Для футбола", 106500, 74, "Россия", "5 суток", "Зеленая")
-    # print(product5.name)
-    # print(product5.description)
-    # print(product5.price)
-    # print(product5.quantity)
-    # print(product5.country)
-    # print(product5.germination_period)
-    # print(product5.color)
-    # print(product5 + product6)
+# if __name__ == "__main__":
+#     print('КЛАСС Product')
+#     product1 = Product("Молоко", "Тогучинское", 66.6, 47)
+#     product2 = Product("Масло", "Сливочное", 200.0, 15)
+#     print(product1)
+#     print(product1.name)
+#     print(product1.description)
+#     print(product1.price)
+#     print(product1.quantity)
+#
+#
+#     print('КЛАСС Smartphone')
+#     product3 = Smartphone("Телефоны", "Cмартфоны", 97700, 7, "Apple", "iPhone 14 Pro Max", "256 ГБ", "Золотой")
+#     product4 = Smartphone("Телефоны", "Cмартфоны", 127700, 12, "Apple", "iPhone 15 Pro Max", "256 ГБ", "Золотой")
+#     print(product3.name)
+#     print(product3.description)
+#     print(product3.price)
+#     print(product3.quantity)
+#     print(product3.efficiency)
+#     print(product3.model)
+#     print(product3.memory)
+#     print(product3.color)
+#     print(product3+product4)
+#
+#
+#     print('КЛАСС LawnGrass')
+#     product5 = LawnGrass("Покрытие для спорта", "Для футбола", 156000, 55, "Россия", "5 суток", "Зеленая")
+#     product6 = LawnGrass("Покрытие для спорта", "Для футбола", 106500, 74, "Россия", "5 суток", "Зеленая")
+#     print(product5.name)
+#     print(product5.description)
+#     print(product5.price)
+#     print(product5.quantity)
+#     print(product5.country)
+#     print(product5.germination_period)
+#     print(product5.color)
+#     print(product5 + product6)
+#
+#
+#     product7 = Product("Молоко", "Тогучинское", 66.6, 0)
+#     print(product7)
+
